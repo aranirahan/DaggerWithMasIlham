@@ -7,6 +7,7 @@ import com.aranirahan.daggerwithmasilham.AppClass
 import com.aranirahan.daggerwithmasilham.R
 import com.aranirahan.daggerwithmasilham.di.ActivityScope
 import com.aranirahan.daggerwithmasilham.di.component.ActivityComponent
+import com.aranirahan.daggerwithmasilham.utils.toJson
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
@@ -42,5 +43,6 @@ class MainActivity : AppCompatActivity(), MainView {
 
     override fun showClubList(clubList: List<Club>?) {
         Log.d(TAG, "Clublist : ${Gson().toJsonTree(clubList)}")
+        Log.d(TAG, "Clublist : ${clubList?.toJson()}")
     }
 }

@@ -5,7 +5,7 @@ import com.aranirahan.daggerwithmasilham.di.ActivityScope
 import dagger.Subcomponent
 
 @ActivityScope
-@Subcomponent
+@Subcomponent//boleh tanpa module, hanya dengan inject
 interface ActivityComponent {
     fun inject(mainActivity: MainActivity)
 
