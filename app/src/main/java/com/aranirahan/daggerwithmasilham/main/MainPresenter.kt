@@ -31,7 +31,14 @@ import retrofit2.Response
 
 @ActivityScope
 class MainPresenter @Inject constructor(val repo: MainRepo) {
+
     private val TAG = "MainPresenter"
+
+    private lateinit var view: MainView
+    fun bind(view: MainView) {
+        this.view = view
+    }
+
     fun getClubList() {
         Log.d("MainPresenter", "MainPresenter : getCLubList")
         repo.getClubList()
@@ -40,6 +47,7 @@ class MainPresenter @Inject constructor(val repo: MainRepo) {
                 .subscribe({
                     //jika sukses
                     Log.d(TAG, "Club List : ${Gson().toJsonTree(it)}")
+                    view.showClubList(it)
                 }, {
                     //jika gagal
                     Log.e(TAG, "Error : ${it.message}")
